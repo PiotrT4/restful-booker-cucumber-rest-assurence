@@ -9,21 +9,15 @@ import org.junit.Assert;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static utils.ApiUtils.checkStatusCode;
 
-public class Steps {
-    private static Response response;
+public class GetBookingIdsSteps {
+    public static Response response;
 
     @When("User sends the GET request for booking")
     public void user_sends_the_get_request_for_booking() {
         response = RestAssured
                 .get("/booking");
-    }
-
-    @Then("The response status code should be {int}")
-    public void the_response_status_code_should_be_integer(int expectedStatusCode) {
-        int actualStatusCode = response.getStatusCode();
-        Assert.assertEquals("Response status code is " + actualStatusCode +
-                        " instead " + expectedStatusCode, expectedStatusCode, actualStatusCode);
     }
 
     @And("The response should contain a list of the booking IDs")
@@ -113,5 +107,10 @@ public class Steps {
                 () -> assertNotNull(response.jsonPath().getString("bookingdates.checkout")),
                 () -> assertNotNull(response.jsonPath().getString("additionalneeds"))
                 );
+    }
+
+    @Then("The response status code should be {int}")
+    public void the_response_status_code_should_be_integer(int expectedStatusCode) {
+        checkStatusCode(expectedStatusCode, response);
     }
 }
