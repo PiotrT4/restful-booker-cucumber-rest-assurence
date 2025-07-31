@@ -49,13 +49,3 @@ Feature: Retrieve all existing booking IDs
     When User sends the GET request for booking with filters: check in "20000101" and check out "2019.01.01"
     Then The response status code should be 500
     And The response body should have "Internal Server Error" text
-
-  Scenario: User gets the details of booking by ID
-    When User sends the GET request for booking with ID 200
-    Then The response status code should be 200
-    And The response should have booking details
-
-  Scenario: User does not get the details of booking by incorrect ID
-    When User sends the GET request for booking with ID -200
-    Then The response status code should be 404
-    And The response body should have "Not Found" text
