@@ -8,8 +8,6 @@ import org.junit.Assert;
 import utils.ApiUtils;
 import utils.TestContext;
 
-import static org.junit.jupiter.api.Assertions.assertAll;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static utils.ApiUtils.getBookingId;
 
 public class GetSteps {
