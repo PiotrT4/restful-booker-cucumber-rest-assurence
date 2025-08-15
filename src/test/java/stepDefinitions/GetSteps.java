@@ -8,6 +8,8 @@ import org.junit.Assert;
 import utils.ApiUtils;
 import utils.TestContext;
 
+import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static utils.ApiUtils.getBookingId;
 
 public class GetSteps {
@@ -116,4 +118,19 @@ public class GetSteps {
         ApiUtils.response = RestAssured
                 .get("/booking/" + testContext.getCapturedValue());
     }
+
+    @And("The response should have booking details")
+    public void the_response_should_have_booking_details() {
+        assertAll(
+                "Response validation:",
+                () -> assertNotNull(ApiUtils.response.jsonPath().getString("firstname")),
+                () -> assertNotNull(ApiUtils.response.jsonPath().getString("lastname")),
+                () -> assertNotNull(ApiUtils.response.jsonPath().getString("totalprice")),
+                () -> assertNotNull(ApiUtils.response.jsonPath().getString("depositpaid")),
+                () -> assertNotNull(ApiUtils.response.jsonPath().getString("bookingdates.checkin")),
+                () -> assertNotNull(ApiUtils.response.jsonPath().getString("bookingdates.checkout")),
+                () -> assertNotNull(ApiUtils.response.jsonPath().getString("additionalneeds"))
+        );
+    }
+
 }
