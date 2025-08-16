@@ -1,6 +1,5 @@
 package stepDefinitions;
 
-import io.cucumber.java.PendingException;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
@@ -14,13 +13,13 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 public class PostSteps {
     public static String requestBody;
 
-    @Given("Generate booking data")
-    public void generate_booking_data() {
-        requestBody = BookingBodyGenerator.generateBookingBody();
+    @Given("Generate {string} body of booking data")
+    public void generate_a_an_string_body_of_booking_data(String bodyType) {
+        requestBody = BookingBodyGenerator.generateBookingBody(bodyType);
     }
 
-    @When("The user send POST request with generated data")
-    public void the_user_send_get_request_with_generated_data() {
+    @When("The user send POST request with generated body")
+    public void the_user_send_get_request_with_generated_body() {
         ApiUtils.response = RestAssured
                 .given()
                     .contentType("application/json")
@@ -41,10 +40,5 @@ public class PostSteps {
                 () -> assertNotNull(ApiUtils.response.jsonPath().getString("booking.bookingdates.checkout")),
                 () -> assertNotNull(ApiUtils.response.jsonPath().getString("booking.additionalneeds"))
         );
-    }
-
-    @Given("Generate an empty body")
-    public void generate_an_empty_body() {
-        requestBody = BookingBodyGenerator.generateEmptyBody();
     }
 }
