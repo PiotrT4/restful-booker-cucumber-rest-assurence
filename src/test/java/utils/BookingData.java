@@ -1,7 +1,5 @@
 package utils;
 
-import javax.xml.crypto.Data;
-
 public class BookingData {
     public String firstname;
     public String lastname;
