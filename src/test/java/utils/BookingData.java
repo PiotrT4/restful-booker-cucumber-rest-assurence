@@ -1,5 +1,7 @@
 package utils;
 
+import javax.xml.crypto.Data;
+
 public class BookingData {
     public String firstname;
     public String lastname;
@@ -9,11 +11,11 @@ public class BookingData {
     public String additionalneeds;
 
     public BookingData(){
-        firstname = "Thoms";
-        lastname = "Kovalevskaya";
-        totalprice = 199;
-        depositpaid = true;
+        firstname = DataFaker.generateFirstName();
+        lastname = DataFaker.generateLastName();
+        totalprice = DataFaker.generateTotalPrice();
+        depositpaid = DataFaker.generateDepositPaid();
         bookingdates = new BookingDates();
-        additionalneeds = "Dishwasher";
+        additionalneeds = DataFaker.generateAddictionalNeeds();
     }
 }
