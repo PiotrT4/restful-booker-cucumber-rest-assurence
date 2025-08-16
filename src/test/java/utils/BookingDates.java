@@ -18,8 +18,8 @@ public class BookingDates {
     }
 
     private void invalidBookingDatesConstructor(BookingDates bookingDates) {
-        bookingDates.checkin = DataFaker.invalidCheckIn();
-        bookingDates.checkout = DataFaker.invalidCheckOut();
+        bookingDates.checkin = null;
+        bookingDates.checkout = null;
     }
 
     private void validBookingDatesConstructor(BookingDates bookingDates) {

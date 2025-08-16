@@ -32,12 +32,4 @@ public class DataFaker {
     public static String validAddictionalNeeds() {
         return faker.joke().knockKnock();
     }
-
-    public static String invalidCheckIn() {
-        return null;
-    }
-
-    public static String invalidCheckOut() {
-        return null;
-    }
 }
