@@ -1,12 +1,12 @@
 package utils;
 
 public class BookingData {
-    public String firstname;
-    public String lastname;
-    public int totalprice;
-    public boolean depositpaid;
-    public BookingDates bookingdates;
-    public String additionalneeds;
+    protected final String firstname;
+    protected final String lastname;
+    protected final int totalprice;
+    protected final boolean depositpaid;
+    protected final BookingDates bookingdates;
+    protected final String additionalneeds;
 
     public BookingData(String bodyType){
         this.firstname = DataFaker.validFirstName();

@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class PostSteps {
-    public static String requestBody;
+    private static String requestBody;
 
     @Given("Generate {string} body of booking data")
     public void generate_a_an_string_body_of_booking_data(String bodyType) {

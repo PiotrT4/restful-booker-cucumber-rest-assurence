@@ -1,8 +1,8 @@
 package utils;
 
 public class BookingDates {
-    public String checkin;
-    public String checkout;
+    protected String checkin;
+    protected String checkout;
 
     BookingDates(String bodyType) {
         switch (bodyType.toUpperCase()){
