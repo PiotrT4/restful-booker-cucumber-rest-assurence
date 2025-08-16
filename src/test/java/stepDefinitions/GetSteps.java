@@ -80,16 +80,6 @@ public class GetSteps {
                 .get("/booking");
     }
 
-    @And("The response body should have {string} text")
-    public void the_response_body_should_have_text(String expectedResponseText) {
-        String actualResponseText = ApiUtils.response.getBody().asString();
-
-        Assert.assertEquals(
-                "Response body contains different text",
-                expectedResponseText, actualResponseText
-        );
-    }
-
     @When("User sends the GET request for booking with an incorrect name filter {string} {string}")
     public void user_sends_the_get_request_for_booking_with_an_incorrect_name_filter(String firstName, String lastName) {
         ApiUtils.response = RestAssured
