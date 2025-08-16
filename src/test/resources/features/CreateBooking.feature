@@ -12,7 +12,7 @@ Feature: Create a new bookings with basic information
     Then The response status code should be 500
     And The response body should have "Internal Server Error" text
 
-  Scenario: The user tries to create a new booking with incorrect booking dates
+  Scenario: The user tries to create a new booking with empty booking dates
     Given Generate "invalid" body of booking data
     When The user send POST request with generated body
     Then The response status code should be 500
