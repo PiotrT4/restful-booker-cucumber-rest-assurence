@@ -9,4 +9,8 @@ public class BookingBodyGenerator {
         Gson gson = new Gson();
         return gson.toJson(bookingData);
     }
+
+    public static String generateEmptyBody() {
+        return "{}";
+    }
 }

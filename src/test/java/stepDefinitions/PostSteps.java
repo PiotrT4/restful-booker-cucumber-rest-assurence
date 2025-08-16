@@ -1,5 +1,6 @@
 package stepDefinitions;
 
+import io.cucumber.java.PendingException;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
@@ -40,5 +41,10 @@ public class PostSteps {
                 () -> assertNotNull(ApiUtils.response.jsonPath().getString("booking.bookingdates.checkout")),
                 () -> assertNotNull(ApiUtils.response.jsonPath().getString("booking.additionalneeds"))
         );
+    }
+
+    @Given("Generate an empty body")
+    public void generate_an_empty_body() {
+        requestBody = BookingBodyGenerator.generateEmptyBody();
     }
 }
