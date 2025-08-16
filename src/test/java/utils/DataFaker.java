@@ -2,36 +2,42 @@ package utils;
 
 import net.datafaker.Faker;
 
-import java.util.concurrent.TimeUnit;
-
 public class DataFaker {
     private static final Faker faker = new Faker();
 
-    public static String generateFirstName() {
+    public static String validFirstName() {
         return faker.name().firstName();
     }
 
-    public static String generateLastName() {
+    public static String validLastName() {
         return faker.name().lastName();
     }
 
-    public static int generateTotalPrice() {
+    public static int validTotalPrice() {
         return faker.number().numberBetween(99, 999);
     }
 
-    public static boolean generateDepositPaid() {
+    public static boolean validDepositPaid() {
         return faker.bool().bool();
     }
 
-    public static String generateCheckIn() {
+    public static String validCheckIn() {
         return faker.expression("#{date.future '1','DAYS','yyyy-MM-dd'}");
     }
 
-    public static String generateCheckOut() {
+    public static String validCheckOut() {
         return faker.expression("#{date.future '30','DAYS','yyyy-MM-dd'}");
     }
 
-    public static String generateAddictionalNeeds() {
+    public static String validAddictionalNeeds() {
         return faker.joke().knockKnock();
+    }
+
+    public static String invalidCheckIn() {
+        return null;
+    }
+
+    public static String invalidCheckOut() {
+        return null;
     }
 }
