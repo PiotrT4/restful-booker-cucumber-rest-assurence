@@ -1,5 +1,7 @@
 package utils;
 
+import javax.xml.crypto.Data;
+
 public class BookingDates {
     protected String checkin;
     protected String checkout;
@@ -18,8 +20,8 @@ public class BookingDates {
     }
 
     private void invalidBookingDatesConstructor(BookingDates bookingDates) {
-        bookingDates.checkin = null;
-        bookingDates.checkout = null;
+        bookingDates.checkin = DataFaker.invalidCheckIn();
+        bookingDates.checkout = DataFaker.invalidCheckOut();
     }
 
     private void validBookingDatesConstructor(BookingDates bookingDates) {

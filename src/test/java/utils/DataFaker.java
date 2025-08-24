@@ -29,6 +29,14 @@ public class DataFaker {
         return faker.expression("#{date.future '30','DAYS','yyyy-MM-dd'}");
     }
 
+    public static String invalidCheckIn() {
+        return faker.expression("#{date.past '900','DAYS','dd-MM-yyyy'}");
+    }
+
+    public static String invalidCheckOut() {
+        return faker.expression("#{date.future '900','DAYS','MM-yyyy-dd'}");
+    }
+
     public static String validAddictionalNeeds() {
         return faker.joke().knockKnock();
     }
